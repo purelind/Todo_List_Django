@@ -1,3 +1,14 @@
-from django.contrib import admin
+from __future__ import unicode_literals
 
-# Register your models here.
+from django.contrib import admin
+from todo_list.models import Todo
+
+
+class TodoAdmin(admin.ModelAdmin):
+    list_display = ('user', 'todo', 'priority', 'flag', 'pubtime')
+    list_filter = ('pubtime',)
+    ordering = ('-pubtime',)
+
+
+admin.site.register(Todo, TodoAdmin)
+
