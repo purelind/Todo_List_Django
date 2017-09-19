@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.http import Http404
@@ -12,7 +11,6 @@ def todolist(request):
     finishtodos = Todo.objects.filter(flag=0)
     return render(request, 'todo/todoList.html',
                   {'todolist': todolist, 'finishtodos': finishtodos})
-    # return render(request, 'todo/test.html')
 
 
 def todofinish(request, id=''):
